@@ -445,7 +445,10 @@ there.
 .header {
   background-color: red;
   padding: 0 0 0 0;
+  /* margin: 0 0 0 0; */
   height: 30px;
+  width: 100%;
+  
 }
 .hamb{
   font-size: 20px;
@@ -454,4 +457,70 @@ there.
 
 .hamb i{
   padding-left: 10px;
+}
+
+.navbot{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.navbot .but{
+  display: inline-block;
+  width: 250px;
+}
+
+.entry{
+  display: inline-block;
+  text-decoration: none;
+  display: flex;
+  padding: 10px 0 10px  0;
+  color: black;
+  margin: 5px 0 5px  0;
+  /* border-color: grey;
+  border-radius:5px;
+  border-width: 1px;
+  border-style: solid;
+  margin: 5px; */
+  overflow-x: hidden;
+  border-left-style: solid;
+}
+.entry .num{
+  text-align: center;
+  flex: 0 0 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+  /* border-color: red;
+  border-radius: 2px;
+  border-width: 3px;
+  border-style: solid; */
+  font-weight: bold;
+}
+.entry .other{
+  flex: 0 0 80%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  padding-left: 10px;
+}
+
+.feed{
+
+  padding: 10px;
+
+}
+
+.feedbox{
+  /* text-align: center; */
+  overflow: scroll;
+  height: 300px;
+  background-color: #F1F1F1;
+  border-radius: 3px;
+  box-shadow: 0 8px 6px -6px grey;
+}
+
+a:hover {
+  background-color: red;
+  color: white;
 }
