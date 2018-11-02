@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Outbreak Map - HealthConnect</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin=""/>
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Javascript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+   
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row" style="margin-top: 10%">
+        <h4>Outbreak Map</h4>
+    </div>
+    <div class="row">
+      <div id="mapid">
+        <script>
+          var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox.streets',
+            accessToken: 'pk.eyJ1IjoiY2hyaXN0aWFuY2hlbmciLCJhIjoiY2puemlva3d4MGNjNjNwczYxaDd6MnJmMyJ9.l5h80-swSv3GhtkmATK1rA'
+          }).addTo(mymap);
+
+          var circlePurple = L.circle([51.500, -0.11], {
+              color: 'Purple',
+              fillColor: '#f03',
+              fillOpacity: 0.5,
+              radius: 300
+          }).addTo(mymap);
+
+          var circleViolet = L.circle([51.521, -0.11], {
+              color: 'violet',
+              fillColor: '#f03',
+              fillOpacity: 0.5,
+              radius: 400
+          }).addTo(mymap);
+
+          var circleBlue = L.circle([51.495, -0.09], {
+              color: 'blue',
+              fillColor: '#f03',
+              fillOpacity: 0.5,
+              radius: 400
+          }).addTo(mymap);
+
+          var circleGreen = L.circle([51.518, -0.07], {
+              color: 'green',
+              fillColor: '#f03',
+              fillOpacity: 0.5,
+              radius: 500
+          }).addTo(mymap);
+
+
+          circlePurple.bindPopup("I am a circle.");
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  
+  <div class ="container">
+    <div id ="reports">
+      <div class="row">
+        <div id="reportPurple">
+          <span onclick="mymap.flyTo([51.500, -0.11], 15)">
+            <strong>Stomach Flu</strong>
+            <br/>
+            <strong>36</strong> cases reported (<strong>15</strong> verified by doctor)
+            <br/>
+            Near <strong>Southwark</strong>
+            <br/>
+            Within the last <strong>7 days</strong>
+          </span>
+          <span class="right">
+            <strong>
+              <a href="reports/reportPurple.html">
+                View Report
+              </a>
+            </strong>
+          </span>
+          &nbsp;
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="reportViolet">
+          <span onclick="mymap.flyTo([51.521, -0.11], 15)">
+            <strong>Meningitis B</strong>
+            <br/>
+            <strong>22</strong> cases reported (<strong>10</strong> verified by doctor)
+            <br/>
+            Near <strong>Clerkenwell</strong>
+            <br/>
+            Within the last <strong>14 days</strong>
+          </span>
+          <span class="right">
+            <strong>
+              <a href="reports/reportViolet.html">
+                View Report
+              </a>
+            </strong>
+          </span>
+          &nbsp;
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="reportBlue">
+          <span onclick="mymap.flyTo([51.495, -0.09], 15)">
+            <strong>Common Cold</strong>
+            <br/>
+            <strong>31</strong> cases reported (<strong>7</strong> verified by doctor)
+            <br/>
+            Near <strong>Elephant and Castle</strong>
+            <br/>
+            Within the last <strong>14 days</strong>
+          </span>
+          <span class="right">
+            <strong>
+              <a href="reports/reportBlue.html">
+                View Report
+              </a>
+            </strong>
+          </span>
+          &nbsp;
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="reportGreen">
+          <span onclick="mymap.flyTo([51.518, -0.07], 14)">
+            <strong>Measles</strong>
+            <br/>
+            <strong>5</strong> cases reported (<strong>5</strong> verified by doctor)
+            <br/>
+            Near <strong>Whitechapel</strong>
+            <br/>
+            Within the last <strong>21 days</strong>
+          </span>
+          <span class="right">
+            <strong>
+              <a href="reports/reportGreen.html">
+                View Report
+              </a>
+            </strong>
+          </span>
+          &nbsp;
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
