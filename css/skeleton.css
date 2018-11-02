@@ -416,3 +416,42 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: grey;
+  transition: .5s;
+  padding-top: 30px;
+}
+.sidebar .closebtn {
+  font-size: 35px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+
+}
+
+.sidebar a{
+  text-decoration: none;
+  display: block;
+  padding-left: 10px; 
+  color: red;
+}
+
+.header {
+  background-color: red;
+  padding: 0 0 0 0;
+  height: 30px;
+}
+.hamb{
+  font-size: 20px;
+  position: absolute;
+}
+
+.hamb i{
+  padding-left: 10px;
+}
