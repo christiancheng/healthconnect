@@ -15,6 +15,10 @@ span.right {
   height: 250px;
 }
 
+#mapidreport { 
+  height: 225px;
+}
+
 #reports {
   margin: 0px;
   overflow: auto;

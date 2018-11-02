@@ -77,9 +77,9 @@
     <div class="row" style="margin-top: 5%">
     </div>
     <div class="row">
-      <div id="mapid">
+      <div id="mapidreport">
         <script>
-          var mymap = L.map('mapid').setView([51.495, -0.09], 14);
+          var mymap = L.map('mapidreport').setView([51.495, -0.09], 14);
 
           L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -104,7 +104,7 @@
 
   <div class ="container">
     <div class="row">
-      <span onclick="mymap.flyTo([51.500, -0.11], 15)">
+      <span onclick="mymap.flyTo([51.495, -0.09], 14)">
         <strong>Common Cold</strong>
             <br/>
             <strong>31</strong> cases reported (<strong>7</strong> verified by doctor)
