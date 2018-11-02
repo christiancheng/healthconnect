@@ -27,7 +27,7 @@
 
 /* EDIT PRIMARY, SECONDARY COLORS HERE */
 :root{
-  --primary-color: red;
+  --primary-color: maroon;
   --secondary-color: orange;
 }
 /* Grid
@@ -421,6 +421,7 @@ there.
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
+
 .sidebar {
   height: 100%;
   width: 0;
@@ -457,6 +458,7 @@ there.
   padding: 0 0 0 0;
   height: 50px;
   width: 100%;
+  color: white;
 }
 
 .header h5{
