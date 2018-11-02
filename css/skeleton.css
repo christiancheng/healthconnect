@@ -25,7 +25,11 @@
 - Media Queries
 */
 
-
+/* EDIT PRIMARY, SECONDARY COLORS HERE */
+:root{
+  --primary-color: red;
+  --secondary-color: orange;
+}
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -157,10 +161,10 @@ p {
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-a {
+/* a {
   color: #1EAEDB; }
 a:hover {
-  color: #0FA0CE; }
+  color: #0FA0CE; } */
 
 
 /* Buttons
@@ -206,8 +210,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
+  background-color: var(--primary-color);
+  border-color: var(--primary-color); }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
@@ -219,8 +223,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color); }
 
 
 /* Forms
@@ -416,3 +420,123 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 9000;
+  overflow-x: hidden;
+  background-color: #F1F1F1;
+  transition: .5s;
+  padding-top: 30px;
+  border-right-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  white-space: nowrap;
+}
+.sidebar .closebtn {
+  font-size: 35px;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  padding-right: 10px;
+
+}
+
+.sidebar a{
+  text-decoration: none;
+  display: block;
+  padding-left: 10px; 
+  color: var(--primary-color);
+}
+
+
+.header {
+  background-color: var(--primary-color);
+  padding: 0 0 0 0;
+  height: 50px;
+  width: 100%;
+}
+
+.header h5{
+  font-size: 25px;
+  line-height: 50px;
+}
+
+.hamb{
+  font-size: 30px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.hamb i{
+  padding-left: 10px;
+}
+
+.navbot{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.navbot .but{
+  display: inline-block;
+  width: 250px;
+}
+
+.entry{
+  display: inline-block;
+  text-decoration: none;
+  display: flex;
+  padding: 10px 0 10px  0;
+  color: black;
+  margin: 5px 0 5px  0;
+  /* border-color: grey;
+  border-radius:5px;
+  border-width: 1px;
+  border-style: solid;
+  margin: 5px; */
+  overflow-x: hidden;
+  border-left-style: solid;
+}
+.entry .num{
+  text-align: center;
+  flex: 0 0 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+  /* border-color: red;
+  border-radius: 2px;
+  border-width: 3px;
+  border-style: solid; */
+  font-weight: bold;
+}
+.entry .other{
+  flex: 0 0 80%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  padding-left: 10px;
+}
+
+.feed{
+
+  padding: 10px;
+
+}
+
+.feedbox{
+  /* text-align: center; */
+  overflow: scroll;
+  height: 300px;
+  background-color: #F1F1F1;
+  border-radius: 3px;
+  box-shadow: 0 8px 6px -6px grey;
+}
+
+a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
