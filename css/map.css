@@ -3,6 +3,14 @@ body {
   height: 100%;
 }
 
+a {
+  style: none;
+}
+
+span.right {
+  float: right;
+}
+
 #mapid { 
   height: 275px;
 }
