@@ -50,7 +50,7 @@
     <div class="row">
       <div id="mapid">
         <script>
-          var mymap = L.map('mapid').setView([51.500, -0.11], 15);
+          var mymap = L.map('mapid').setView([51.518, -0.07], 14);
 
           L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -59,31 +59,31 @@
             accessToken: 'pk.eyJ1IjoiY2hyaXN0aWFuY2hlbmciLCJhIjoiY2puemlva3d4MGNjNjNwczYxaDd6MnJmMyJ9.l5h80-swSv3GhtkmATK1rA'
           }).addTo(mymap);
 
-          var circlePurple = L.circle([51.500, -0.11], {
-              color: 'Purple',
+          var circleGreen = L.circle([51.518, -0.07], {
+              color: 'green',
               fillColor: '#f03',
               fillOpacity: 0.5,
-              radius: 300
+              radius: 500
           }).addTo(mymap);
+
         </script>
       </div>
     </div>
   </div>
 
   <hr>
-  
+
   <div class ="container">
     <div class="row">
       <span onclick="mymap.flyTo([51.500, -0.11], 15)">
-        <strong>Stomach Flu</strong>
-        <br/>
-        <strong>36</strong> cases reported (<strong>15</strong> verified by doctor)
-        <br/>
-        Near <strong>Southwark</strong>
-        <br/>
-        Within the last <strong>7 days</strong>
+        <strong>Measles</strong>
+          <br/>
+          <strong>5</strong> cases reported (<strong>5</strong> verified by doctor)
+          <br/>
+          Near <strong>Whitechapel</strong>
+          <br/>
+          Within the last <strong>21 days</strong>
       </span>
-      &nbsp;
     </div>
   </div>
 
@@ -92,51 +92,9 @@
   <div class ="container">
     <div id ="reports">
       <div class="row">
-        <div id="reportPurple">
+        <div id="reportGreen">
           <span>
-            <strong>Southwark</strong>
-            <br/>
-            Reported <strong>today</strong> 
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div id="reportPurple">
-          <span>
-            <strong>Lambeth</strong>
-            <br/>
-            Reported <strong>today</strong> 
-            <br/>
-            <strong>✓ Verified by doctor</strong> 
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div id="reportPurple">
-          <span>
-            <strong>Southwark</strong>
-            <br/>
-            Reported <strong>yesterday</strong> 
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div id="reportPurple">
-          <span>
-            <strong>South Bank</strong>
-            <br/>
-            Reported <strong>yesterday</strong> 
-          </span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div id="reportPurple">
-          <span>
-            <strong>Southwark</strong>
+            <strong>Whitechapel</strong>
             <br/>
             Reported <strong>2 days ago</strong> 
             <br/>
@@ -146,11 +104,11 @@
       </div>
 
       <div class="row">
-        <div id="reportPurple">
+        <div id="reportGreen">
           <span>
-            <strong>Southwark</strong>
+            <strong>Spitalfields</strong>
             <br/>
-            Reported <strong>3 days ago</strong> 
+            Reported <strong>5 days ago</strong> 
             <br/>
             <strong>✓ Verified by doctor</strong> 
           </span>
@@ -158,11 +116,37 @@
       </div>
 
       <div class="row">
-        <div id="reportPurple">
+        <div id="reportGreen">
           <span>
-            <strong>Lambeth</strong>
+            <strong>Bethnal Green</strong>
             <br/>
-            Reported <strong>3 days ago</strong> 
+            Reported <strong>9 days ago</strong> 
+            <br/>
+            <strong>✓ Verified by doctor</strong> 
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="reportGreen">
+          <span>
+            <strong>Whitechapel</strong>
+            <br/>
+            Reported <strong>17 days ago</strong> 
+            <br/>
+            <strong>✓ Verified by doctor</strong> 
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="reportGreen">
+          <span>
+            <strong>Globe Town</strong>
+            <br/>
+            Reported <strong>3 weeks ago</strong> 
+            <br/>
+            <strong>✓ Verified by doctor</strong> 
           </span>
         </div>
       </div>
