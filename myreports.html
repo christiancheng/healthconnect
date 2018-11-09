@@ -59,9 +59,8 @@
     </div>
     <div>
       <div class="container feed" style="width: 95%; padding-top:0">
-          <div class="row feedbox"style="background-color: white;">
+          <div id="reportList" class="row feedbox"style="background-color: white;">
             <div class="entry" style="border-color: var(--primary-color)">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Meningitis</div>
@@ -72,11 +71,9 @@
                   Unverified by doctor <i class="fas fa-times-circle"></i>
                 </div>
               </div>
-
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: green">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Whooping Cough</div>
@@ -90,7 +87,6 @@
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: var(--primary-color)">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Strep Throat</div>
@@ -104,7 +100,6 @@
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: green">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Bronchitis</div>
@@ -150,11 +145,17 @@
           </div>
           <div class="modal-footer">
             <button type="button" style="float:left;" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button style ="background-color:var(--primary-color)" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            <button style ="background-color:var(--primary-color)" type="button" id="submitReport" class="btn btn-primary" data-dismiss="modal">Submit</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div style ="position:fixed;bottom:0%;width:100%;" class="alert alert-success alert-dismissible fade" role="alert" id="submitSuccess">
+    <strong>Submission Successful!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
       <script>
@@ -182,6 +183,18 @@
             .trigger('propertychange').focus();
         });
 
+        $('#submitReport').click(function() {
+          var d = new Date();
+
+          var month = d.getMonth()+1;
+          var day = d.getDate();
+
+          var output = 
+              (month<10 ? '0' : '') + month + '/' +
+              (day<10 ? '0' : '') + day + '/' + + d.getFullYear();
+          $('#reportList').prepend('<div class="entry" style="border-color: var(--primary-color)"><div class="myReport"><div><div style="font-weight: bold; font-size: 15px">' + $("#illnessInput").val() + '</div>Reported near <div style="font-weight: bold; font-size: 12px; display: inline">'+ $("#locationInput").val() +'</div><br />From <div style="font-weight: bold; font-size: 12px; display: inline">' + output + '</div> to <div style="font-weight: bold; font-size: 12px; display: inline"></div> <br>Unverified by doctor <i class="fas fa-times-circle"></i></div></div></div>');
+        });
+
         $('#inputModal').on('hidden.bs.modal', function (e) {
           $(this)
             .find("input,textarea,select")
@@ -191,7 +204,11 @@
               .prop("checked", "")
               .end();
           $('.symptomList').empty();
-        })
+        });
+
+        $('#submitReport').click(function () {
+          $('#submitSuccess').addClass('show');
+        });
       </script>
       <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
