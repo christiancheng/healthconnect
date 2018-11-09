@@ -5,23 +5,47 @@ html, body {
   height: 100%;
 }
 
-.slogan {
+#loginbutton {
+  border: 2px solid maroon;
   color: red;
+}
+
+#textinput {
+  border: 2px solid maroon;
+  background-color: rgba(0,0,0,0);
+  color: red;
+}
+
+#passwordinput {
+  border: 2px solid maroon;
+  background-color: rgba(0,0,0,0);
+  color: red;
+}
+
+.login {
+  position: absolute;
+  top: 333px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slogan {
+  color: crimson;
   text-align: center;
   font-size: 1.5em;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: absolute;
-  bottom: 25em;
+  top: 111px;
   left: 0;
   right: 0;
 }
 
 .view {
-  position: absolute;
-  top: 0;
+  position: relative;
   left: 0;
   right: 0;
-  bottom: 15em;
+  top: 250px;
   -webkit-perspective: 400;
           perspective: 400;
 }
