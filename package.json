@@ -1,0 +1,25 @@
+{
+  "name": "healthconnect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap-fs-modal": "^0.3.6",
+    "fullcalendar": "^3.9.0",
+    "tui-calendar": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiancheng/healthconnect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christiancheng/healthconnect/issues"
+  },
+  "homepage": "https://github.com/christiancheng/healthconnect#readme"
+}

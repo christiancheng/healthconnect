@@ -425,3 +425,7 @@ td,
 th {
   padding: 0;
 }
+
+.list-group-item {
+  padding: 1px 5px 1px 5px;
+}
