@@ -522,6 +522,15 @@ there.
   padding-left: 10px;
 }
 
+.entry .myReport{
+  flex: 0 0 80%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  padding-left: 10px;
+  font-size: 12px;
+}
+
 .feed{
 
   padding: 10px;
@@ -531,10 +540,10 @@ there.
 .feedbox{
   /* text-align: center; */
   overflow: scroll;
-  height: 300px;
+  height: 400px;
   background-color: #F1F1F1;
   border-radius: 3px;
-  box-shadow: 0 8px 6px -6px grey;
+  /*box-shadow: 0 8px 6px -6px grey;*/
 }
 
 a:hover {
