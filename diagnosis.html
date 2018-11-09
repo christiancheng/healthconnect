@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Compare Symptom</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="awesomplete-gh-pages/awesomplete.css" />
+  
+
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="sidebar" id="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>
+      <br/>
+      <span id="sidebartitle">&nbsp;HealthConnect</span>
+      <br/>
+      <br/>
+      <a href="home.html">Home</a>
+      <a href="map.html">Health Map</a>
+      <span id="sidebartitle"><a href="symptomcheck.html">Symptom Check</a></span>
+      <a href="myreports.html">My Reports</a>
+      <br/>
+      <a href="index.html">Log Out</a>
+    </div>
+  <div class="container header">
+    <div class="row ">
+      <div style="text-align: center">
+        <div class="hamb">
+          <i class="fas fa-bars" onclick="openSide()"></i>
+        </div>
+        <h5 style="display: inline-block">Compare Symptoms</h5>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h5 style="text-align: center; margin: 0; padding: 20px 0 20px 0;">Based on your symptoms and those reported by others nearby, it is possible that you have:</h5> 
+      <div id="scompare">
+
+      </div>
+    <h5 style="text-align: center; margin: 0;">*This should not be taken as medical advice. Please consult a licensed professional</h5> 
+
+  </div>
+      <!-- Scripts------------------------------------------------- -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>      <!-- <script src="awesomplete.js" async></script> -->
+
+      <script>
+        function openSide() {
+          document.getElementById("sidebar").style.width = "150px";
+        }
+
+        function closeSide() {
+          document.getElementById("sidebar").style.width = "0";
+        }
+
+        $( document ).ready(function() {
+          console.log( "ready!" );
+          var disease = ["Meningitis B", "Whooping Cough", "Strep Throat", "Stomach Flu", "Common Cold", "Measles", "Bronchitis"];
+          var r = Math.floor((Math.random() * 6) + 0)
+          console.log(r)
+          $("#scompare").append('<span id="sidebartitle"><h2>'+disease[r]+'</h2></span>');
+        })
+      </script>
+
+      <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
