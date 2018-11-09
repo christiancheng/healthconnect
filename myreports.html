@@ -59,9 +59,8 @@
     </div>
     <div>
       <div class="container feed" style="width: 95%; padding-top:0">
-          <div class="row feedbox"style="background-color: white;">
+          <div id="reportList" class="row feedbox"style="background-color: white;">
             <div class="entry" style="border-color: var(--primary-color)">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Meningitis</div>
@@ -72,11 +71,9 @@
                   Unverified by doctor <i class="fas fa-times-circle"></i>
                 </div>
               </div>
-
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: green">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Whooping Cough</div>
@@ -90,7 +87,6 @@
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: var(--primary-color)">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Strep Throat</div>
@@ -104,7 +100,6 @@
             </div>
             <hr style="margin:0;">
             <div class="entry" style="border-color: green">
-              <!-- <div class="entry"> -->
               <div class="myReport">
                 <div>
                   <div style="font-weight: bold; font-size: 15px">Bronchitis</div>
@@ -140,7 +135,7 @@
                 <div class="input-group mb-3" style="display:inline">
                   <input style="display:inline; width:80%; margin-bottom:15px;" id="userinput" type="text" class="form-control" placeholder="Add a symptom" aria-label="Add a Symptom" aria-describedby="basic-addon2">
                   <div style="display:inline;" class="input-group-append">
-                    <button style ="background-color:var(--secondary-color); margin-bottom:15px;" class="btn btn-outline-info" id="enter" type="button">Add</button>
+                    <button style ="background-color:var(--secondary-color); margin-bottom:15px;" class="btn btn-outline-info addSymptom" id="enter" type="button">Add</button>
                   </div>
                 </div>
               </div>
@@ -150,11 +145,17 @@
           </div>
           <div class="modal-footer">
             <button type="button" style="float:left;" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button style ="background-color:var(--primary-color)" type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            <button style ="background-color:var(--primary-color)" type="button" id="submitReport" class="btn btn-primary" data-dismiss="modal">Submit</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div style ="position:fixed;bottom:0%;width:100%;" class="alert alert-success alert-dismissible fade" role="alert" id="submitSuccess">
+    <strong>Submission Successful!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
       <script>
@@ -175,6 +176,38 @@
           li.className = 'list-group-item';
           li.textContent = input.value;
           ul.appendChild(li);
+        });
+
+        $('.addSymptom').click(function() {
+          $(this).parent().siblings('input[type="text"]').val('')
+            .trigger('propertychange').focus();
+        });
+
+        $('#submitReport').click(function() {
+          var d = new Date();
+
+          var month = d.getMonth()+1;
+          var day = d.getDate();
+
+          var output = 
+              (month<10 ? '0' : '') + month + '/' +
+              (day<10 ? '0' : '') + day + '/' + + d.getFullYear();
+          $('#reportList').prepend('<div class="entry" style="border-color: var(--primary-color)"><div class="myReport"><div><div style="font-weight: bold; font-size: 15px">' + $("#illnessInput").val() + '</div>Reported near <div style="font-weight: bold; font-size: 12px; display: inline">'+ $("#locationInput").val() +'</div><br />From <div style="font-weight: bold; font-size: 12px; display: inline">' + output + '</div> to <div style="font-weight: bold; font-size: 12px; display: inline"></div> <br>Unverified by doctor <i class="fas fa-times-circle"></i></div></div></div>');
+        });
+
+        $('#inputModal').on('hidden.bs.modal', function (e) {
+          $(this)
+            .find("input,textarea,select")
+              .val('')
+              .end()
+            .find("input[type=checkbox], input[type=radio]")
+              .prop("checked", "")
+              .end();
+          $('.symptomList').empty();
+        });
+
+        $('#submitReport').click(function () {
+          $('#submitSuccess').addClass('show');
         });
       </script>
       <!-- End Document
