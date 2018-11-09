@@ -1,44 +1,50 @@
 html, body {
-  background: #0f222b;
+  background: maroon;
   overflow: hidden;
   width: 100%;
   height: 100%;
 }
 
 #loginbutton {
-  border: 2px solid maroon;
-  color: red;
+  border: 1px solid white;
+  color: white;
+}
+
+::placeholder { 
+    color: white;
+    opacity: 0.8;
 }
 
 #textinput {
-  border: 2px solid maroon;
+  border: 1px solid white;
   background-color: rgba(0,0,0,0);
-  color: red;
+  color: white;
 }
 
 #passwordinput {
-  border: 2px solid maroon;
+  border: 1px solid white;
   background-color: rgba(0,0,0,0);
-  color: red;
+  color: white;
 }
 
 .login {
   position: absolute;
-  top: 333px;
+  top: 370px;
   left: 0;
   right: 0;
   text-align: center;
 }
 
 .slogan {
-  color: crimson;
+  color: white;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.9em;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: absolute;
-  top: 111px;
+  top: 95px;
   left: 0;
   right: 0;
+  font-weight: bold;
 }
 
 .view {
@@ -76,7 +82,7 @@ html, body {
           transform-style: preserve-3d;
   border-radius: 100%;
   box-sizing: border-box;
-  box-shadow: 0 0 60px crimson, inset 0 0 60px crimson;
+  box-shadow: 0 0 60px white, inset 0 0 60px white;
 }
 .plane.main .circle::before, .plane.main .circle::after {
   content: "";
@@ -90,7 +96,7 @@ html, body {
   width: 10%;
   height: 10%;
   border-radius: 100%;
-  background: crimson;
+  background: white;
   box-sizing: border-box;
   box-shadow: 0 0 60px 2px crimson;
 }
