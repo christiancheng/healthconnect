@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -21,7 +22,10 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="awesomplete-gh-pages/awesomplete.css" />
+  
 
 
   <!-- Favicon
@@ -29,39 +33,104 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
+
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="sidebar" id="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>
-        <br>
-        <a href="index.html">Home</a>
-        <a href="map.html">Health Map</a>
-        <a href="myreports.html">My Reports</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeSide()">&times;</a>
+    <br>
+    <a href="index.html">Home</a>
+    <a href="map.html">Health Map</a>
+    <a href="myreports.html">My Reports</a>
 
-      </div>
-      <div class="container header">
-        <div class="row ">
-          <div style="text-align: center">
-            <div class="hamb">
-              <i class="fas fa-bars" onclick="openSide()"></i>
-            </div>
-            <h5 style="display: inline-block">Symptom Check</h5>
-          <div>
+  </div>
+  <div class="container header">
+    <div class="row ">
+      <div style="text-align: center">
+        <div class="hamb">
+          <i class="fas fa-bars" onclick="openSide()"></i>
         </div>
-      </div>
+        <h5 style="display: inline-block">Symptom Check</h5>
 
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row sInput">
+      <input class="awesomplete sDropdown" id="symptInput" data-minchars=0 data-maxitems=10
+       data-list="
+        Abdominal pain,
+        Blood in stool,
+        Chest pain,
+        Constipation,
+        Cough,
+        Diarrhea,
+        Difficulty swallowing,
+        Dizziness,
+        Eye discomfort and redness,
+        Eye problems,
+        Foot pain or ankle pain,
+        Foot swelling or leg swelling,
+        Headaches,
+        Heart palpitations,
+        Hip pain,
+        Knee pain,
+        Low back pain,
+        Nasal congestion,
+        Nausea or vomiting,
+        Neck pain,
+        Numbness or tingling in hands,
+        Pelvic pain: Female,
+        Pelvic pain: Male,
+        Shortness of breath,
+        Shoulder pain,
+        Sore throat,
+        Urinary problems,
+        Wheezing,
+        Bad CSE170 grade,
+        Body Odor"
+      />
+      <i class="far fa-plus-square sAdd" onClick=addSymptom()></i>
+    </div>
+    <div class="container feed">
+        <div class="row feedbox" id="feedbox">
+          <a href="javascript:void(0)" class="entrySymptom" id="sympPlace" style="border-color: purple"><div class="sytmtText u-max-full-width">Please Input Some Symptoms</div></a><hr style="width: 80%; margin: 0 auto;">
+
+    </div>
+
+    <div class="row navbot">
+        <a class="button button-primary but" href="diagnosis.html">What's wrong with me</a>
+    </div>
+
+  </div>
+      <!-- Scripts------------------------------------------------- -->
       <script>
-            function openSide() {
-                document.getElementById("sidebar").style.width = "150px";
-            }
-            
-            function closeSide() {
-                document.getElementById("sidebar").style.width = "0";
-            }
-        </script>
-<!-- End Document
+        function openSide() {
+          document.getElementById("sidebar").style.width = "150px";
+        }
+
+        function closeSide() {
+          document.getElementById("sidebar").style.width = "0";
+        }
+        function addSymptom() {
+          $("#sympPlace").remove()
+          var input = $("#symptInput").val();
+          $("#symptInput").val('');
+          if(input){
+            $("#feedbox").append(
+              '<a href="javascript:void(0)" class="entrySymptom" style="border-color: purple"><div class="sytmtText u-max-full-width">'+input+'</div></a><hr style="width: 80%; margin: 0 auto;">'
+            )
+          }
+        }
+      </script>
+      <script src="awesomplete-gh-pages/awesomplete.js" async></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>      <!-- <script src="awesomplete.js" async></script> -->
+
+      <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
