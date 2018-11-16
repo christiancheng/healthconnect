@@ -116,12 +116,20 @@
     </div>
 
     <div class="row navbot">
-        <a class="button button-primary but" href="diagnosis.html">Find possible illnesses</a>
+        <a onclick="emptyCheck()" class="button button-primary but" id="diagnoseBtn" href="diagnosis.html">Find possible illnesses</a>
     </div>
 
   </div>
       <!-- Scripts------------------------------------------------- -->
       <script>
+        function emptyCheck() {
+          var x = $("#feedbox").find("#sympPlace").length
+          if(x == 1){
+            $("#diagnoseBtn").attr('href', "javascript:void(0)");
+          }else{
+            $("#diagnoseBtn").attr('href', "diagnosis.html");
+          }
+        }
         function openSide() {
           document.getElementById("sidebar").style.width = "150px";
         }
@@ -139,6 +147,13 @@
             )
           }
         }
+        // on pressing "enter" add the symptom to the list
+        document.getElementById('symptInput').onkeypress=function(e){
+          if(e.keyCode==13){
+            addSymptom();
+          }
+        };
+
       </script>
       <script src="awesomplete-gh-pages/awesomplete.js" async></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>      <!-- <script src="awesomplete.js" async></script> -->
