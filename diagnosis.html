@@ -9,6 +9,7 @@
   <title>Compare Symptom</title>
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -63,15 +64,17 @@
     </div>
   </div>
   <div class="container">
-    <h5 style="text-align: center; margin: 0; padding: 20px 0 20px 0;">Based on your symptoms and those reported by others nearby, it is possible that you have:</h5> 
-      <div class="container feed" style="width: 95%; padding-top:0; text-align: left;">
-        <div id="reportList" class="row feedbox"style="background-color: white;">
-        </div>
+    <p style="text-align: center; margin: 0; padding: 5px 0 5px 0; font-size: 10px;">Based on your symptoms and those reported by others nearby, it is possible that you have:</p> 
+    <div class="container feed" style="height: 50vh; width: 95%; padding: 0px; text-align: left; margin: 0px;">
+      <div id="reportList" class="row feedbox"style="background-color: white; height: 50vh">
       </div>
-    <h5 style="text-align: center; margin: 0;">*This should not be taken as medical advice. Please consult a licensed professional</h5> 
+    </div>
+    <p style="text-align: center; margin: 0;">*This should not be taken as medical advice. Please consult a licensed professional</p> 
 
-    <div class="row navbot">
-        <a class="button button-primary but" href="myreports.html">Add to Reports</a>
+    <div class="row navbot" style="display: flex; justify-content: space-around;">
+        <!----<a class="button button-primary but" href="myreports.html" style="padding: 0;">Add to Reports</a>-->
+        <a class="btn btn-primary" href="myreports.html" role="button" style="margin:auto; background-color: var(--primary-color)">Add to My Reports</a>
+        <a class="btn btn-primary" href="home.html" role="button" style="margin:auto; background-color: var(--primary-color)">Go to Homepage</a>
     </div>
 
   </div>
