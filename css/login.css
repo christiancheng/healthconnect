@@ -27,6 +27,11 @@ html, body {
   color: white;
 }
 
+.error {
+  display:none;
+  color: white;
+}
+
 .login {
   position: absolute;
   top: 370px;

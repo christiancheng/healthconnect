@@ -29,6 +29,10 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <!-- Javascript
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+
 </head>
 
 <body>
@@ -52,7 +56,7 @@
   </div>
 
   <div class="login">
-    <form class="form-horizontal" action="home.html">
+    <form class="form-horizontal">
 <fieldset>
 
 <!-- Text input-->
@@ -78,7 +82,30 @@
 
 </fieldset>
 </form>
+
+<p class="error">Error: The username or password you entered is invalid.</p>
+
   </div>
+
+  <script>
+    $(document).ready(function() {
+
+    $('#loginbutton').click(function() {
+
+        event.preventDefault(); // prevent PageReLoad
+
+       var ValidEmail = $('#textinput').val() === 'justin'; // User validate
+var ValidPassword = $('#passwordinput').val() === 'hunter2'; // Password validate
+
+        if (ValidEmail === true && ValidPassword === true) { // if ValidEmail & ValidPassword
+            window.location = "home.html"; // go to home.html
+        }
+        else {
+            $('.error').css('display', 'block'); // show error msg
+        }
+    });
+});
+  </script>
 
          
 <!-- End Document
