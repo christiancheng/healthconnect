@@ -67,7 +67,7 @@
   <div class="container">
     <p style="text-align: center; margin: 0; padding: 5px 0 5px 0; font-size: 16px;">Based on your symptoms and those reported by others nearby, it is possible that you have:</p> 
     <div class="container feed" style="height: 50vh; width: 95%; padding: 0px; text-align: left; margin: 0px">
-      <div id="reportList" class="row feedbox"style="background-color: white; height: 50vh">
+      <div id="reportList" class="row feedbox list-group"style="background-color: white; height: 50vh">
       </div>
     </div>
     <br/>
@@ -125,7 +125,6 @@
         }
 
         $( document ).ready(function() {
-          console.log( "ready!" );
           var disease = ["Meningitis B", "Whooping Cough", "Strep Throat", "Stomach Flu", "Common Cold", "Measles", "Bronchitis", "Stomache Ulcer", "Mononucleosis", "Pneumonia", "Scoliosis", "Shingles", "Tonsilitis", "Yellow Fever", "Malaria", "HIV", "Hand, Foot, and Mouth Disease", "Hay Fever"];
           var likelihoods = ["Strong match", "Moderate match", "Unlikely match"];
           var i;
@@ -133,12 +132,14 @@
           for(i = 0; i < 6; i++) {
             var d = Math.floor((Math.random() * disease.length));
             var numCases = Math.floor((Math.random() * 200))
-            $('#reportList').append('<div class="entry" style="border-color: var(--primary-color)"><div class="myReport"><div><div style="font-weight: bold; font-size: 15px">' + disease[d] + '</div>Likelihood: <div style="font-weight: bold; font-size: 12px; display: inline">' + likelihoods[l] + '</div><br /> Cases reported in your area: <div style="font-weight: bold; font-size: 12px; display: inline">' + numCases + '</div>');
+            $('#reportList').append('<li class="entry' + i + ' list-group-item list-group-item-action" style="border-color: var(--primary-color)"><div class="myReport"><div><div class="illnessID" id="illness' + i + '" style="font-weight: bold; font-size: 15px">' + disease[d] + '</div>Likelihood: <div style="font-weight: bold; font-size: 12px; display: inline">' + likelihoods[l] + '</div><br /> Cases reported in your area: <div style="font-weight: bold; font-size: 12px; display: inline">' + numCases + '</li>');
             if(i % 2 == 1) {
               l = l + 1;
             }
             disease.splice(d, 1);
           }
+          var illness = document.getElementById('illness0').textContent;
+            document.getElementById('illnessInput').value = illness;
         })
 
         var button = document.getElementById("enter");
@@ -154,6 +155,21 @@
           }
         });
 
+        $(function(){
+            console.log('ready');
+
+            $('.list-group li').click(function(e) {
+                e.preventDefault()
+
+                $that = $(this);
+
+                $that.parent().find('li').removeClass('active');
+                $that.addClass('active');
+                var illness = $that.find('.illnessID').text();
+                document.getElementById('illnessInput').value = illness;
+            });
+        })
+
         $('.addSymptom').click(function() {
           $(this).parent().siblings('input[type="text"]').val('')
             .trigger('propertychange').focus();
@@ -162,7 +178,7 @@
         $('#submitReport').click(function() {
             document.getElementById("reportButton").innerHTML = "Report Submitted!";
             document.getElementById("reportButton").setAttribute("disabled", "true");
-        });
+        });        
 
         $('#inputModal').on('hidden.bs.modal', function (e) {
           $(this)
