@@ -98,7 +98,7 @@
                         <button style ="background-color:var(--secondary-color); margin-bottom:15px;" class="btn btn-outline-info addSymptom" id="enter" type="button">Add</button>
                     </div>
                     </div>
-                    <ul class="list-group symptomList"></ul>
+                    <ul id="symptomInput" class="list-group symptomList"></ul>
                 </div>
 
                 <label for="locationInput">Location</label>
@@ -139,7 +139,13 @@
             disease.splice(d, 1);
           }
           var illness = document.getElementById('illness0').textContent;
-            document.getElementById('illnessInput').value = illness;
+          document.getElementById('illnessInput').value = illness;
+
+          var symptomList = JSON.parse(localStorage.getItem("symptoms"));
+          console.log(symptomList);
+          for(i = 0; i < symptomList.length; i++) {
+            $('#symptomInput').append('<list-group-item class="list-group-item">' + symptomList[i] + '</list-group-item>');
+          }
         })
 
         var button = document.getElementById("enter");
@@ -156,8 +162,6 @@
         });
 
         $(function(){
-            console.log('ready');
-
             $('.list-group li').click(function(e) {
                 e.preventDefault()
 
