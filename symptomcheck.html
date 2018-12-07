@@ -137,9 +137,13 @@
         function closeSide() {
           document.getElementById("sidebar").style.width = "0";
         }
+
+        var symptomList = []
         function addSymptom() {
           $("#sympPlace").remove()
           var input = $("#symptInput").val();
+          symptomList.push(input);
+          localStorage.setItem("symptoms", JSON.stringify(symptomList));
           $("#symptInput").val('');
           if(input){
             $("#feedbox").append(

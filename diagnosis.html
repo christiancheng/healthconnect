@@ -9,7 +9,9 @@
   <title>Compare Symptom</title>
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src="js/jquery-3.3.1.min.js"></script> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -65,16 +67,49 @@
   <div class="container">
     <p style="text-align: center; margin: 0; padding: 5px 0 5px 0; font-size: 16px;">Based on your symptoms and those reported by others nearby, it is possible that you have:</p> 
     <div class="container feed" style="height: 50vh; width: 95%; padding: 0px; text-align: left; margin: 0px">
-      <div id="reportList" class="row feedbox"style="background-color: white; height: 50vh">
+      <div id="reportList" class="row feedbox list-group"style="background-color: white; height: 50vh">
       </div>
     </div>
     <br/>
     <p style="text-align: center; margin: 0; font-size: 12px; color:maroon"><strong>Disclaimer:</strong> This content is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p> 
-
+    </div>
     <div class="row navbot" style="display: flex; justify-content: space-around;">
         <!----<a class="button button-primary but" href="myreports.html" style="padding: 0;">Add to Reports</a>-->
-        <a class="btn btn-primary" href="myreports.html" role="button" style="margin:auto; background-color: var(--primary-color)">Add to My Reports</a>
+        <button style="margin:auto; background-color: var(--primary-color);" type="button" class="btn btn-primary" data-toggle="modal" data-target="#inputModal" id="reportButton">
+            Add to Reports
+        </button>
         <a class="btn btn-primary" href="home.html" role="button" style="margin:auto; background-color: var(--primary-color)">Go to Homepage</a>
+    </div>
+
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" style="margin:auto auto auto 12px; width:90%;" role="document">
+            <div class="modal-content" style="color:black;">
+            <div class="modal-header">
+                <h5 class="modal-title"  id="exampleModalLongTitle">Add Health Report</h5>
+            </div>
+            <div class="modal-body" style="height:auto;">
+                <label for="illnessInput">Illness</label>
+                <input id="illnessInput" class="form-control" type="text" placeholder="e.x. Influenza">
+                <div>
+                    <label for="symptomList">Symptoms</label>
+                    <div class="input-group mb-3" style="display:inline">
+                    <input style="display:inline; width:80%; margin-bottom:15px;" id="userinput" type="text" class="form-control" placeholder="Add a symptom" aria-label="Add a Symptom" aria-describedby="basic-addon2">
+                    <div style="display:inline;" class="input-group-append">
+                        <button style ="background-color:var(--secondary-color); margin-bottom:15px;" class="btn btn-outline-info addSymptom" id="enter" type="button">Add</button>
+                    </div>
+                    </div>
+                    <ul id="symptomInput" class="list-group symptomList"></ul>
+                </div>
+
+                <label for="locationInput">Location</label>
+                <input id="locationInput" class="form-control" type="text" placeholder="e.x. La Jolla, CA">
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="float:left;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button style ="background-color:var(--primary-color)" type="button" id="submitReport" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+            </div>
+        </div>
     </div>
 
       <!-- Scripts------------------------------------------------- -->
@@ -90,7 +125,6 @@
         }
 
         $( document ).ready(function() {
-          console.log( "ready!" );
           var disease = ["Meningitis B", "Whooping Cough", "Strep Throat", "Stomach Flu", "Common Cold", "Measles", "Bronchitis", "Stomache Ulcer", "Mononucleosis", "Pneumonia", "Scoliosis", "Shingles", "Tonsilitis", "Yellow Fever", "Malaria", "HIV", "Hand, Foot, and Mouth Disease", "Hay Fever"];
           var likelihoods = ["Strong match", "Moderate match", "Unlikely match"];
           var i;
@@ -98,13 +132,72 @@
           for(i = 0; i < 6; i++) {
             var d = Math.floor((Math.random() * disease.length));
             var numCases = Math.floor((Math.random() * 200))
-            $('#reportList').append('<div class="entry" style="border-color: var(--primary-color)"><div class="myReport"><div><div style="font-weight: bold; font-size: 15px">' + disease[d] + '</div>Likelihood: <div style="font-weight: bold; font-size: 12px; display: inline">' + likelihoods[l] + '</div><br /> Cases reported in your area: <div style="font-weight: bold; font-size: 12px; display: inline">' + numCases + '</div>');
+            $('#reportList').append('<li class="entry' + i + ' list-group-item list-group-item-action" style="border-color: var(--primary-color)"><div class="myReport"><div><div class="illnessID" id="illness' + i + '" style="font-weight: bold; font-size: 15px">' + disease[d] + '</div>Likelihood: <div style="font-weight: bold; font-size: 12px; display: inline">' + likelihoods[l] + '</div><br /> Cases reported in your area: <div style="font-weight: bold; font-size: 12px; display: inline">' + numCases + '</li>');
             if(i % 2 == 1) {
               l = l + 1;
             }
             disease.splice(d, 1);
           }
+          var illness = document.getElementById('illness0').textContent;
+          document.getElementById('illnessInput').value = illness;
+
+          var symptomList = JSON.parse(localStorage.getItem("symptoms"));
+          console.log(symptomList);
+          for(i = 0; i < symptomList.length; i++) {
+            $('#symptomInput').append('<list-group-item class="list-group-item">' + symptomList[i] + '</list-group-item>');
+          }
         })
+
+        var button = document.getElementById("enter");
+        var input = document.getElementById("userinput");
+        var ul = document.querySelector("ul");
+
+        button.addEventListener("click", function() {
+          if(input.value != '') {
+            var li = document.createElement("list-group-item");
+            li.className = 'list-group-item';
+            li.textContent = input.value;
+            ul.appendChild(li);
+          }
+        });
+
+        $(function(){
+            $('.list-group li').click(function(e) {
+                e.preventDefault()
+
+                $that = $(this);
+
+                $that.parent().find('li').removeClass('active');
+                $that.addClass('active');
+                var illness = $that.find('.illnessID').text();
+                document.getElementById('illnessInput').value = illness;
+            });
+        })
+
+        $('.addSymptom').click(function() {
+          $(this).parent().siblings('input[type="text"]').val('')
+            .trigger('propertychange').focus();
+        });
+
+        $('#submitReport').click(function() {
+            document.getElementById("reportButton").innerHTML = "Report Submitted!";
+            document.getElementById("reportButton").setAttribute("disabled", "true");
+        });        
+
+        $('#inputModal').on('hidden.bs.modal', function (e) {
+          $(this)
+            .find("input,textarea,select")
+              .val('')
+              .end()
+            .find("input[type=checkbox], input[type=radio]")
+              .prop("checked", "")
+              .end();
+          $('.symptomList').empty();
+        });
+
+        $('#submitReport').click(function () {
+          $('#submitSuccess').addClass('show');
+        });
       </script>
 
       <!-- End Document
